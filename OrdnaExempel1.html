@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="sv-SE">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link media="all" href="./css/Ordna/autoptimize_87aba846e80e17fe03c155569b5c1817.css" rel="stylesheet">
+	<title>Ordna</title>
+	<link rel="stylesheet" id="bootstrap-css-css" href="./css/Ordna/bootstrap.min.css" type="text/css" media="all">
+
+	<style>
+        .radio-group {
+            display: flex;
+            justify-content: left;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+
+        input[type="radio"] {
+            margin: 0;
+            transform: scale(1.2);
+            accent-color: #50f8a0;
+        }
+	</style>
+
+</head>
+
+<body>
+    <div class="container">
+        
+    	<h2> Upplåtelseform </h2>
+
+        <div class="radio-group">
+            <div class="radio-option">
+                <input type="radio" id="Driftkostnad" name="upplatelse" value="Äganderätt" checked>
+                <label for="Villa">Äganderätt</label>
+            </div>
+            
+            <div class="radio-option">
+                <input type="radio" id="Avgift" name="upplatelse" value="Förening">
+                <label for="BRF">Förening</label>
+            </div>
+        </div>
+
+        <h2 id="kostnad">Driftkostnad</h2>
+
+
+        <input type="text" placeholder="Kr/Månad" name="">
+    </div>
+
+    <script>
+        const radioButtons = document.querySelectorAll('input[name="upplatelse"]');
+        const heading = document.getElementById('kostnad');
+        
+        // Add event listener to each radio button
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    heading.textContent = this.id;
+                }
+            });
+        });
+        const checkedRadio = document.querySelector('input[name="upplatelse"]:checked');
+        if (checkedRadio) {
+            heading.textContent = checkedRadio.id;
+        }
+    </script>
+</body>
+</html>
